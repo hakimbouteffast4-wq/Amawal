@@ -85,8 +85,8 @@ function renderUltimateNexus(data) {
     if (data.length === 0) {
         hub.innerHTML = `
             <div style="text-align:center; padding:10rem 2rem; background:white; border-radius:48px; border:2px dashed #eee;">
-                <i class="fas fa-microscope fa-5x" style="opacity:0.02; color:var(--i-navy); margin-bottom:2rem;"></i>
-                <h3 style="color:var(--i-navy); font-weight:900;">Intelligence Acquisition Failed</h3>
+                <i class="fas fa-microscope fa-5x" style="opacity:0.02; color:var(--brand-navy); margin-bottom:2rem;"></i>
+                <h3 style="color:var(--brand-navy); font-weight:900;">Intelligence Acquisition Failed</h3>
                 <p style="color:#64748b;">لم يتم العثور على أي مادة لسانية تطابق مصفوفة الاستعلام</p>
             </div>
         `;
@@ -105,7 +105,7 @@ function renderUltimateNexus(data) {
             <div class="artifact-matrix">
                 <div class="matrix-node">
                     <h4><i class="fas fa-fingerprint"></i> الجذر اللساني / Root</h4>
-                    <p style="font-family:monospace; color:var(--i-gold); font-size:2.4rem; font-weight:950;">${item.root}</p>
+                    <p style="font-family:monospace; color:var(--brand-gold); font-size:2.4rem; font-weight:950;">${item.root}</p>
                 </div>
 
                 <div class="matrix-node">
@@ -120,7 +120,7 @@ function renderUltimateNexus(data) {
                         <div class="radar-pointer" style="right: ${item.charge_val}%;"></div>
                     </div>
                     <div class="logic-mastery">
-                        <strong style="color:var(--i-gold); font-size:1.6rem; display:block; margin-bottom:20px;">${item.tag}</strong>
+                        <strong style="color:var(--brand-gold); font-size:1.6rem; display:block; margin-bottom:20px;">${item.tag}</strong>
                         <p>${item.logic}</p>
                     </div>
                 </div>
@@ -152,9 +152,6 @@ function renderUltimateNexus(data) {
     });
 }
 
-/**
- * Intelligent Cinematic Search
- */
 function ultimateSearch() {
     const q = document.getElementById("ultimate-search").value.toLowerCase().trim();
     const filtered = ultimateRepository.filter(i =>
@@ -166,16 +163,12 @@ function ultimateSearch() {
     renderUltimateNexus(filtered);
 }
 
-/**
- * Navigation Architecture
- */
 function toggleSidebar() {
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');
     sidebar.classList.toggle('active');
     overlay.classList.toggle('active');
 
-    // منع تمرير الصفحة الرئيسية عند فتح القائمة لضمان نقاء الواجهة
     if (sidebar.classList.contains('active')) {
         document.body.style.overflow = 'hidden';
     } else {
