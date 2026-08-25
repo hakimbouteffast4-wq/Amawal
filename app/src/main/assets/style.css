@@ -1,0 +1,371 @@
+:root {
+    /* Prestigious Academic Palette - "The Imperial Edition" */
+    --brand-dark: #020617;
+    --brand-primary: #0f172a;
+    --brand-accent: #a16207; /* Burnished Gold */
+    --brand-accent-light: #fef3c7;
+    --brand-emerald: #064e3b;
+    --brand-slate: #f8fafc;
+    --brand-white: #ffffff;
+
+    /* Semantic Colors */
+    --c-pos: #059669;
+    --c-neg: #be123c;
+    --c-neu: #475569;
+
+    /* High-End Elevation & Depth */
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.07), 0 4px 6px -2px rgba(0,0,0,0.05);
+    --shadow-premium: 0 30px 60px -12px rgba(0, 0, 0, 0.12), 0 18px 36px -18px rgba(0, 0, 0, 0.15);
+    --glass-bg: rgba(255, 255, 255, 0.85);
+
+    /* Motion Principles */
+    --ease-in-out: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-elastic: all 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Base Smoothing */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Tajawal', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: #fdfdfd; /* Off-white for less eye strain */
+    color: var(--brand-primary);
+    direction: rtl;
+    line-height: 1.8;
+    overflow-x: hidden;
+    /* Topographic background pattern for subtle texture */
+    background-image: radial-gradient(#e2e8f0 0.5px, transparent 0.5px);
+    background-size: 24px 24px;
+}
+
+/* --- Entrance Visuals --- */
+.stunning-reveal { animation: revealIn 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+@keyframes revealIn {
+    from { opacity: 0; transform: translateY(30px) scale(0.98); filter: blur(10px); }
+    to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
+}
+
+/* --- Imperial Navbar --- */
+.navbar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    height: 85px;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    display: flex;
+    align-items: center;
+}
+
+.nav-container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 80px 1fr 80px;
+    align-items: center;
+    padding: 0 2rem;
+}
+
+.brand-imperial {
+    grid-column: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.brand-imperial h1 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    color: var(--brand-dark);
+    letter-spacing: -1.5px;
+    line-height: 1;
+}
+
+.brand-imperial span {
+    font-size: 0.75rem;
+    color: var(--brand-accent);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-top: 4px;
+}
+
+.trigger-imperial {
+    grid-column: 1;
+    background: var(--brand-dark);
+    color: white;
+    width: 45px;
+    height: 45px;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+    transition: var(--ease-elastic);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.trigger-imperial:hover { transform: scale(1.1) rotate(90deg); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
+
+/* --- Sidebar: The Royal Chamber --- */
+.sidebar {
+    position: fixed;
+    top: 0; right: -350px;
+    width: 350px; height: 100vh;
+    background: white;
+    z-index: 2000;
+    transition: var(--ease-in-out);
+    display: flex;
+    flex-direction: column;
+    box-shadow: -20px 0 60px rgba(0,0,0,0.05);
+}
+
+.sidebar.active { right: 0; }
+
+.sidebar-hero {
+    padding: 4rem 2.5rem;
+    background: linear-gradient(135deg, var(--brand-dark) 0%, #1e293b 100%);
+    color: white;
+}
+
+.sidebar-nav { flex: 1; padding: 2rem 0; overflow-y: auto; }
+.sidebar-nav a, .sidebar-nav button {
+    display: flex; align-items: center; gap: 15px; padding: 1.2rem 2.5rem;
+    text-decoration: none; color: #475569; font-weight: 800; transition: 0.3s;
+    background: none; border: none; width: 100%; text-align: right; cursor: pointer;
+}
+
+.sidebar-nav a:hover, .sidebar-nav a.active {
+    background: #f8fafc;
+    color: var(--brand-accent);
+    border-right: 6px solid var(--brand-accent);
+}
+
+/* Sub-nav Styling */
+.sidebar-subnav { display: none; background: #fafafa; padding-right: 30px; }
+.sidebar-subnav a { font-size: 0.9rem; font-weight: 600; padding: 0.8rem 2.5rem; }
+
+/* --- The Research Dashboard Nexus --- */
+.dashboard-imperial {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+}
+
+.stat-artifact {
+    background: white;
+    padding: 3rem 2rem;
+    border-radius: 32px;
+    border: 1px solid #f1f5f9;
+    text-align: center;
+    transition: var(--ease-elastic);
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-artifact:hover { transform: translateY(-10px); box-shadow: var(--shadow-premium); border-color: var(--brand-accent); }
+.stat-artifact i { font-size: 2.2rem; color: var(--brand-accent); margin-bottom: 20px; opacity: 0.3; }
+.stat-artifact .val { font-size: 3rem; font-weight: 900; color: var(--brand-dark); line-height: 1; }
+.stat-artifact .lab { font-size: 0.85rem; color: #94a3b8; font-weight: 800; text-transform: uppercase; margin-top: 10px; }
+
+/* --- Advanced Search Matrix --- */
+.search-stratosphere {
+    max-width: 950px;
+    margin: 0 auto 6rem;
+    text-align: center;
+}
+
+.search-command-orb {
+    background: white;
+    padding: 12px;
+    border-radius: 50px;
+    box-shadow: var(--shadow-md);
+    display: flex;
+    align-items: center;
+    border: 2px solid transparent;
+    transition: 0.4s;
+}
+
+.search-command-orb:focus-within { border-color: var(--brand-accent); box-shadow: 0 20px 40px rgba(161, 98, 7, 0.1); }
+.search-command-orb input {
+    flex: 1;
+    border: none;
+    padding: 15px 35px;
+    font-size: 1.4rem;
+    outline: none;
+    background: transparent;
+}
+
+/* --- The Master Lexical Card: Stunning Edition --- */
+.master-card {
+    background: white;
+    border-radius: 40px;
+    padding: clamp(2rem, 8vw, 6rem);
+    margin-bottom: 5rem;
+    border: 1px solid #f1f5f9;
+    box-shadow: var(--shadow-md);
+    transition: var(--ease-in-out);
+    position: relative;
+    overflow: hidden;
+}
+
+.master-card:hover { transform: scale(1.005); box-shadow: var(--shadow-premium); }
+
+.card-decoration {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 8px;
+    background: linear-gradient(90deg, var(--brand-dark), var(--brand-accent), var(--brand-dark));
+}
+
+.card-header-zenith {
+    margin-bottom: 4rem;
+    border-bottom: 3px solid #f8fafc;
+    padding-bottom: 3rem;
+}
+
+.lemma-hero { font-size: clamp(3rem, 10vw, 5.5rem); font-weight: 900; color: var(--brand-dark); line-height: 0.8; margin-bottom: 15px; }
+.ipa-hero { font-size: clamp(1.2rem, 3vw, 1.8rem); color: var(--brand-accent); font-family: 'Charis SIL', serif; font-style: italic; }
+
+.card-grid-nexus {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 5rem;
+}
+
+.node-imperial h4 {
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: #94a3b8;
+    letter-spacing: 4px;
+    margin-bottom: 1.5rem;
+    font-weight: 900;
+}
+
+.node-imperial p { font-size: 1.4rem; font-weight: 500; color: #1e293b; }
+
+/* Dynamic Pragmatic Lab Zenith */
+.pragmatic-master-lab {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, #ffffff 0%, #fdfdfd 100%);
+    border: 1px solid #f1f5f9;
+    border-radius: 36px;
+    padding: 4rem;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+
+.spectrum-track {
+    height: 20px;
+    background: #f1f5f9;
+    border-radius: 50px;
+    margin: 45px 0;
+    position: relative;
+    box-shadow: inset 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.spectrum-fill {
+    height: 100%; border-radius: 50px;
+    background: linear-gradient(90deg, #ef4444, #3b82f6, #10b981);
+    opacity: 0.8;
+}
+
+.spectrum-cursor {
+    width: 42px; height: 42px;
+    top: -11px;
+    background: white; border: 10px solid var(--brand-accent);
+    border-radius: 50%; position: absolute;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    transition: 2s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.logic-imperial {
+    font-size: 1.35rem;
+    color: #475569;
+    border-right: 8px solid var(--brand-accent);
+    padding-right: 3rem;
+    line-height: 2.2;
+    text-align: justify;
+}
+
+/* Strategic Corpus Manuscript Zenith */
+.corpus-imperial-vault {
+    grid-column: 1 / -1;
+    background: var(--brand-dark);
+    color: white;
+    padding: clamp(3rem, 10vw, 6rem);
+    border-radius: 48px;
+    position: relative;
+}
+
+.corpus-imperial-vault::after {
+    content: 'LINGUISTIC EVIDENCE SOURCE';
+    position: absolute;
+    top: 40px; left: 60px;
+    background: var(--brand-accent);
+    color: white;
+    padding: 8px 25px;
+    font-size: 0.8rem;
+    font-weight: 900;
+    border-radius: 14px;
+    letter-spacing: 2px;
+}
+
+.manuscript-text-prime { font-size: clamp(1.8rem, 6vw, 3.2rem); font-style: italic; line-height: 1.3; display: block; margin-bottom: 3rem; color: #f8fafc; text-align: center; }
+.manuscript-analysis-prime { font-size: 1.2rem; color: #94a3b8; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 3rem; text-align: right; }
+
+/* --- Sovereign Bottom Navigation (Stunning Edition) --- */
+.bottom-nav {
+    display: none;
+    position: fixed; bottom: 0; left: 0; right: 0;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(25px);
+    height: 85px; z-index: 1000;
+    border-top: 1px solid var(--n-border);
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: env(safe-area-inset-bottom);
+    box-shadow: 0 -15px 40px rgba(0,0,0,0.08);
+}
+
+.nav-item {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    justify-content: center; color: #94a3b8; font-size: 0.8rem; font-weight: 900;
+    cursor: pointer; gap: 6px; height: 100%; transition: 0.4s;
+}
+
+.nav-item i { font-size: 1.6rem; transition: 0.4s; }
+.nav-item.active { color: var(--brand-accent); }
+.nav-item.active i { transform: translateY(-5px); }
+
+/* --- Mobile Adaptations --- */
+@media (max-width: 768px) {
+    body { padding-bottom: 100px; }
+    .bottom-nav { display: flex; }
+    .nav-container { grid-template-columns: 60px 1fr; }
+    .master-card { padding: 3rem 1.5rem; border-radius: 32px; }
+    .dashboard-imperial { grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .stat-artifact { padding: 2rem 1rem; }
+    .stat-artifact .val { font-size: 2.2rem; }
+    .sidebar { width: 88%; }
+}
+
+.pane-view { display: none; }
+.pane-view.active { display: block; animation: stunningEntrance 0.8s ease-out; }
+@keyframes stunningEntrance { from { opacity: 0; transform: translateY(40px) scale(0.99); filter: blur(5px); } to { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); } }
+
+.overlay {
+    position: fixed; inset: 0; background: rgba(2, 6, 23, 0.6);
+    backdrop-filter: blur(15px); z-index: 1500; display: none;
+}
+.overlay.active { display: block; }

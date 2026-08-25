@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+    <title>Amawal Imperial | البوابة السيادية للأطلس اللساني التداولي</title>
+    <!-- Premium Global Assets -->
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body class="stunning-reveal">
+
+    <!-- نظام الملاحة الإمبراطوري: بيئة إدارة المعرفة -->
+    <aside id="sidebar" class="sidebar">
+        <div class="sidebar-hero">
+            <h2 style="font-size: 2.2rem; font-weight: 900; line-height: 1;">Amawal <br> <span style="font-weight: 300;">Imperial</span></h2>
+            <p style="opacity: 0.6; font-size: 0.85rem; margin-top: 15px;">Elite Linguistic Framework v10.8</p>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="active" onclick="switchPane('pane-lexicon', this); toggleSidebar()">
+                <i class="fas fa-microscope"></i> المستودع المعجمي
+            </a>
+
+            <button onclick="toggleSidebarSubnav()">
+                <i class="fas fa-layer-group"></i> أرشيف المتون <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-right: auto;"></i>
+            </button>
+            <div id="sidebar-subnav" class="sidebar-subnav">
+                <a href="#" onclick="switchPane('corpus-tales', this); toggleSidebar()">نصوص الحكايات</a>
+                <a href="#" onclick="switchPane('corpus-poetry', this); toggleSidebar()">المدونات الشعرية</a>
+                <a href="#" onclick="switchPane('corpus-proverbs', this); toggleSidebar()">الأمثال والحكم</a>
+                <a href="#" onclick="switchPane('corpus-riddles', this); toggleSidebar()">الألغاز (Timssardin)</a>
+                <a href="#" onclick="switchPane('corpus-idioms', this); toggleSidebar()">تعابير مسكوكة</a>
+            </div>
+
+            <a href="#" onclick="switchPane('pane-comparison', this); toggleSidebar()">
+                <i class="fas fa-balance-scale-right"></i> التحليل التبايني
+            </a>
+            <a href="#" onclick="switchPane('pane-theory', this); toggleSidebar()">
+                <i class="fas fa-project-diagram"></i> مصفوفة المنهجية
+            </a>
+            <a href="#" onclick="switchPane('pane-phd', this); toggleSidebar()">
+                <i class="fas fa-university"></i> بيانات الأطروحة
+            </a>
+        </nav>
+    </aside>
+
+    <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
+
+    <!-- الشريط العلوي الإمبراطوري (Ultra-Premium UI) -->
+    <header class="navbar">
+        <div class="nav-container">
+            <button class="trigger-imperial" onclick="toggleSidebar()" aria-label="Toggle Portal">
+                <i class="fas fa-th-large fa-lg"></i>
+            </button>
+            <div class="brand-imperial">
+                <h1>Amawal</h1>
+                <span>Elite Linguistic Oracle</span>
+            </div>
+            <div style="width: 45px;" class="desktop-only"></div>
+        </div>
+    </header>
+
+    <main class="main-master-wrapper" style="max-width: 1440px; margin: 4rem auto; padding: 0 2rem;">
+
+        <!-- 1. واجهة المستكشف المعجمي -->
+        <div id="pane-lexicon" class="pane-view active">
+            <div class="dashboard-imperial">
+                <div class="stat-artifact">
+                    <i class="fas fa-book-reader"></i>
+                    <span class="val" id="total-val">0</span>
+                    <span class="lab">مدخل معجمي محقق</span>
+                </div>
+                <div class="stat-artifact">
+                    <i class="fas fa-fingerprint"></i>
+                    <span class="val">√492</span>
+                    <span class="lab">جذر لساني مركزي</span>
+                </div>
+                <div class="stat-artifact">
+                    <i class="fas fa-map-marked-alt"></i>
+                    <span class="val">03</span>
+                    <span class="lab">قبائل مرجعية</span>
+                </div>
+                <div class="stat-artifact">
+                    <i class="fas fa-shield-check"></i>
+                    <span class="val">v10.8</span>
+                    <span class="lab">نظام الإدارة المعرفية</span>
+                </div>
+            </div>
+
+            <div class="search-stratosphere">
+                <h2 style="font-size: clamp(2.2rem, 6vw, 4.5rem); margin-bottom: 0.8rem; letter-spacing: -4px;">بوابة الاستقصاء اللساني</h2>
+                <div class="search-command-orb">
+                    <i class="fas fa-search" style="padding-left: 20px; color: #cbd5e1;"></i>
+                    <input type="text" id="master-search" onkeyup="imperialSearch()" placeholder="ابحث عن فعل، جذر، أو شحنة...">
+                </div>
+            </div>
+
+            <div id="results-imperial"></div>
+        </div>
+
+        <!-- الأقسام المتخصصة للمتن -->
+        <div id="corpus-tales" class="pane-view" style="display:none;">
+            <div class="master-card">
+                <h2 style="color:var(--brand-accent); margin-bottom:3rem; font-size:3rem;">نصوص الحكايات (Tinfusin)</h2>
+                <div class="corpus-imperial-vault">
+                    <span class="manuscript-text-prime">illa wmšan d tmšant d lxir d memmi-s al aynn di ylla wrgaz imlš yišt n tmṭṭuṭ tuṛw as aḥrrud tmmt...</span>
+                    <p class="manuscript-analysis-prime">التحليل: تجسيد تداولي لأفعال الكينونة في السرد الأمازيغي.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="corpus-poetry" class="pane-view" style="display:none;">
+            <div class="master-card">
+                <h2 style="color:var(--brand-accent); margin-bottom:3rem; font-size:3rem;">المدونات الشعرية (Isaffn)</h2>
+                <p style="text-align:center; padding: 4rem; opacity:0.3;"><i class="fas fa-feather fa-5x"></i><br>قريباً: الأرشيف الشعري المحقق.</p>
+            </div>
+        </div>
+
+        <div id="corpus-proverbs" class="pane-view" style="display:none;">
+            <div class="master-card">
+                <h2 style="color:var(--brand-accent); margin-bottom:3rem; font-size:3rem;">الأمثال والحكم</h2>
+                <div class="corpus-imperial-vault" style="background:#fef3c7; color:var(--brand-dark);">
+                    <span class="manuscript-text-prime" style="color:var(--brand-dark);">"unna wr irri lḥma iddud iswit"</span>
+                    <p class="manuscript-analysis-prime" style="color:var(--brand-accent); border-color:var(--brand-accent);">المعنى: من لم يرد الحرارة أتى فشربها (كناية عن الاستحواذ القهري).</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="corpus-riddles" class="pane-view" style="display:none;">
+            <div class="master-card">
+                <h2 style="color:var(--brand-accent); margin-bottom:3rem; font-size:3rem;">الألغاز (Timssardin)</h2>
+                <p style="text-align:center; padding: 4rem; opacity:0.3;"><i class="fas fa-puzzle-piece fa-5x"></i><br>قريباً: مستودع الألغاز الشعبية.</p>
+            </div>
+        </div>
+
+        <div id="corpus-idioms" class="pane-view" style="display:none;">
+            <div class="master-card">
+                <h2 style="color:var(--brand-accent); margin-bottom:3rem; font-size:3rem;">تعابير مسكوكة</h2>
+                <p style="text-align:center; padding: 4rem; opacity:0.3;"><i class="fas fa-comments fa-5x"></i><br>قريباً: رصد التركيبات اللفظية الجاهزة.</p>
+            </div>
+        </div>
+
+        <!-- الأقسام الاستراتيجية الأخرى -->
+        <div id="pane-comparison" class="pane-view" style="display:none;">
+            <div class="master-card" style="text-align:center;">
+                <h2 style="margin-bottom:3rem;">نظام التحليل التبايني</h2>
+                <i class="fas fa-balance-scale fa-5x" style="color:var(--brand-gold); opacity:0.1; margin-bottom:2rem;"></i>
+                <p>مقارنة أداء الأفعال بين قبائل أيت يوسي ومرموشة وأيت وراين.</p>
+            </div>
+        </div>
+
+        <div id="pane-theory" class="pane-view" style="display:none;">
+            <div class="master-card">
+                <h2 style="color:var(--brand-accent); margin-bottom:3rem; font-size:3.5rem;">مصفوفة المنهجية</h2>
+                <p style="font-size: 1.6rem; color: #334155; text-align: justify; line-height: 2.4;">
+                    تعتمد الدراسة على نموذج البحث الميداني المقارن والتحليل التداولي المعمق للمباني الفعلية في سياقاتها التلقائية.
+                </p>
+            </div>
+        </div>
+
+        <div id="pane-phd" class="pane-view" style="display:none;">
+            <div class="master-card" style="text-align:center; padding:10rem 4rem;">
+                <i class="fas fa-graduation-cap fa-7x" style="color:var(--brand-dark); opacity:0.03; margin-bottom:3rem;"></i>
+                <h2 style="font-size:4rem;">أطروحة الدكتوراه</h2>
+                <p style="margin-top:60px; font-weight:800; font-size:1.6rem;">جامعة محمد بن عبد الله - فاس</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- شريط التنقل السفلي الإمبراطوري -->
+    <nav class="bottom-nav">
+        <div class="nav-item active" onclick="switchPane('pane-lexicon', this)">
+            <i class="fas fa-microscope"></i>
+            <span>المعجم</span>
+        </div>
+        <div class="nav-item" onclick="toggleSidebar(); toggleSidebarSubnav()">
+            <i class="fas fa-layer-group"></i>
+            <span>المحتوى</span>
+        </div>
+        <div class="nav-item" onclick="switchPane('pane-phd', this)">
+            <i class="fas fa-university"></i>
+            <span>الأطروحة</span>
+        </div>
+        <div class="nav-item" onclick="toggleSidebar()">
+            <i class="fas fa-ellipsis-h"></i>
+            <span>المزيد</span>
+        </div>
+    </nav>
+
+    <script src="app.js"></script>
+</body>
+</html>

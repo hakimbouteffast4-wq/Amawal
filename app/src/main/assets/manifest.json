@@ -1,0 +1,21 @@
+{
+  "name": "أماوال - المعجم التداولي لإقليم بولمان",
+  "short_name": "Amawal",
+  "description": "تطبيق ومعجم الأفعال الأمازيغية بإقليم بولمان",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#7c3aed",
+  "theme_color": "#7c3aed",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3898/3898082.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/3898/3898082.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
