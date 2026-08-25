@@ -3,7 +3,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_teal">
+    android:background="#030712">
 
     <WebView
         android:id="@+id/webView"

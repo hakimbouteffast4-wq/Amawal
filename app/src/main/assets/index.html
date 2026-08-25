@@ -2,165 +2,93 @@
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
-    <title>Amawal Ultimate v11 | المنصة الإمبراطورية للأطلس اللساني</title>
-    <!-- Sovereign Assets -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+    <title>أفعال الكلام | أيت يوسي</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap" rel="stylesheet">
 </head>
-<body class="ultimate-reveal">
+<body class="entrance-anim">
+    <div class="orb orb-1"></div>
 
-    <!-- القائمة الجانبية: المستودع المعرفي السيادي -->
     <aside id="sidebar" class="sidebar">
-        <div class="sidebar-top-section">
-            <h2 style="font-size: 2.5rem; font-weight: 900; line-height: 1;">Amawal <br> <span style="font-weight: 200;">Ultimate</span></h2>
-            <p style="opacity: 0.6; font-size: 0.9rem; margin-top: 20px;">The Zenith of Digital Linguistics</p>
+        <div class="sidebar-header">
+            <h2>أفعال الكلام</h2>
+            <span>دراسة تداولية</span>
         </div>
         <nav class="sidebar-nav">
-            <a href="#" class="active" onclick="switchPane('pane-lexicon', this); toggleSidebar()">
-                <i class="fas fa-microscope"></i> المستودع المعجمي
-            </a>
-
-            <button onclick="toggleSidebarSubnav()">
-                <i class="fas fa-layer-group"></i> استكشاف المتون <i class="fas fa-chevron-down" style="font-size: 0.8rem; margin-right: auto;"></i>
-            </button>
-            <div id="sidebar-subnav" class="sidebar-subnav">
-                <a href="#" onclick="switchPane('corpus-tales', this); toggleSidebar()">المتن الحكائي</a>
-                <a href="#" onclick="switchPane('corpus-poetry', this); toggleSidebar()">مدونات الشعر</a>
-                <a href="#" onclick="switchPane('corpus-proverbs', this); toggleSidebar()">الأمثال والحكم</a>
-                <a href="#" onclick="switchPane('corpus-riddles', this); toggleSidebar()">الألغاز (Timssardin)</a>
-                <a href="#" onclick="switchPane('corpus-idioms', this); toggleSidebar()">تعابير مسكوكة</a>
+            <a href="#" class="active" onclick="switchPane('pane-lexicon', this); toggleSidebar()"><i class="fas fa-home"></i> الرئيسية</a>
+            <button onclick="toggleSidebarSubnav()"><i class="fas fa-layer-group"></i> المتن المجمع <i class="fas fa-chevron-down" style="font-size: 0.7rem; margin-right: auto;"></i></button>
+            <div id="sidebar-subnav" class="sidebar-subnav" style="display:none;">
+                <a href="#" onclick="setSearchCategory('tales'); toggleSidebar()">الحكايات</a>
+                <a href="#" onclick="setSearchCategory('izlan'); toggleSidebar()">إيزلان</a>
+                <a href="#" onclick="setSearchCategory('proverbs'); toggleSidebar()">أمثال شعبية</a>
+                <a href="#" onclick="setSearchCategory('riddles'); toggleSidebar()">ألغاز</a>
+                <a href="#" onclick="setSearchCategory('idioms'); toggleSidebar()">تعابير مسكوكة</a>
             </div>
+            <a href="#" onclick="switchPane('about-pane', this); toggleSidebar()"><i class="fas fa-info-circle"></i> حول الدراسة</a>
+            <a href="#" onclick="switchPane('contact-pane', this); toggleSidebar()"><i class="fas fa-envelope"></i> اتصل بنا</a>
 
-            <a href="#" onclick="switchPane('pane-comparison', this); toggleSidebar()">
-                <i class="fas fa-balance-scale-right"></i> التحليل التبايني
-            </a>
-            <a href="#" onclick="switchPane('pane-theory', this); toggleSidebar()">
-                <i class="fas fa-project-diagram"></i> مصفوفة المنهجية
-            </a>
-            <a href="#" onclick="switchPane('pane-phd', this); toggleSidebar()">
-                <i class="fas fa-university"></i> بيانات الأطروحة
-            </a>
+            <div class="admin-sidebar-section">
+                <button onclick="switchPane('admin-pane', this); toggleSidebar()" class="admin-btn-nav">
+                    <i class="fas fa-user-shield"></i> تحكم المشرف
+                </button>
+            </div>
         </nav>
     </aside>
 
     <div id="overlay" class="overlay" onclick="toggleSidebar()"></div>
 
-    <!-- الشريط العلوي (Cinematic Glass UI) -->
     <header class="navbar">
         <div class="nav-container">
-            <button class="btn-portal-trigger" onclick="toggleSidebar()" aria-label="Toggle Portal">
-                <i class="fas fa-th-large fa-lg"></i>
-            </button>
-            <div class="brand-pinnacle">
-                <h1>Amawal</h1>
-                <span>Digital Research Oracle</span>
+            <div style="display: flex; gap: 10px; align-items: center; width: 120px;">
+                <button id="back-btn" class="trigger-btn" onclick="navigateBack()" style="display:none;"><i class="fas fa-arrow-right"></i></button>
+                <button id="menu-btn" class="trigger-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
             </div>
-            <div style="width: 45px;" class="desktop-only"></div>
+            <div class="brand-pinnacle" onclick="switchPane('pane-lexicon')">
+                <h1>أفعال الكلام</h1>
+                <span>في التراث الشفهي لأيت يوسي</span>
+            </div>
+            <div style="display: flex; gap: 10px; align-items: center; justify-content: flex-end; width: 120px; margin-right: auto;">
+                <button id="theme-toggle" class="trigger-btn" onclick="toggleTheme()"><i class="fas fa-moon"></i></button>
+            </div>
         </div>
     </header>
 
-    <main class="main-master-wrapper" style="max-width: 1500px; margin: 5rem auto; padding: 0 2rem;">
-
-        <!-- 1. واجهة المستكشف المعجمي -->
+    <main class="main-master-wrapper" style="padding: 2rem; position: relative; z-index: 1;">
         <div id="pane-lexicon" class="pane-container active">
-
-            <!-- Strategic Dashboard Metrics -->
-            <div class="dashboard-metrics-grid">
-                <div class="metric-artifact">
-                    <i class="fas fa-fingerprint"></i>
-                    <span class="number" id="master-count">0</span>
-                    <span class="label">مدخل لساني</span>
-                </div>
-                <div class="metric-artifact">
-                    <i class="fas fa-project-diagram"></i>
-                    <span class="number">√492</span>
-                    <span class="label">جذر مركزي</span>
-                </div>
-                <div class="metric-artifact">
-                    <i class="fas fa-shield-alt"></i>
-                    <span class="number">100%</span>
-                    <span class="label">توثيق ميداني</span>
-                </div>
-                <div class="metric-artifact">
-                    <i class="fas fa-chart-line"></i>
-                    <span class="number">v11</span>
-                    <span class="label">إصدار البحث</span>
-                </div>
+            <div id="category-grid" class="speech-act-grid">
+                <div class="act-category-card" onclick="setSearchCategory('tales')"><i class="fas fa-book-open"></i><h3>الحكايات</h3></div>
+                <div class="act-category-card" onclick="setSearchCategory('izlan')"><i class="fas fa-music"></i><h3>إيزلان</h3></div>
+                <div class="act-category-card" onclick="setSearchCategory('proverbs')"><i class="fas fa-comments"></i><h3>أمثال شعبية</h3></div>
+                <div class="act-category-card" onclick="setSearchCategory('riddles')"><i class="fas fa-puzzle-piece"></i><h3>الألغاز</h3></div>
+                <div class="act-category-card" onclick="setSearchCategory('idioms')"><i class="fas fa-quote-right"></i><h3>التعابير المسكوكة</h3></div>
             </div>
+            <div id="results-nexus"></div>
+        </div>
 
-            <!-- Intelligent Search Hub -->
-            <div class="inquiry-center">
-                <h2 style="font-size: clamp(2.5rem, 8vw, 5rem); margin-bottom: 0.8rem; letter-spacing: -5px; line-height: 0.8;">بوابة الاستقصاء</h2>
-                <p style="color: #64748b; font-size: 1.6rem; font-weight: 200; margin-bottom: 5rem;">نظام استرجاع المعلومات اللسانية المعقدة في إقليم بولمان</p>
-
-                <div class="search-capsule">
-                    <i class="fas fa-search" style="padding-left: 20px; color: #cbd5e1; font-size: 1.5rem;"></i>
-                    <input type="text" id="ultimate-search" onkeyup="ultimateSearch()" placeholder="ابحث في الجذور، الألفاظ، أو الشحنات (وصم، تلطف)...">
-                </div>
-            </div>
-
-            <div id="results-ultimate">
-                <!-- Academic Artifact Streams Here -->
+        <div id="about-pane" class="pane-container">
+            <div class="contact-card ultimate-reveal">
+                <h2 class="contact-title">حول الدراسة</h2>
+                <p>أرشفة رقمية وتحليل لساني تداولي للتراث الشفهي لقبيلة أيت يوسي.</p>
             </div>
         </div>
 
-        <!-- الأقسام المتخصصة -->
-        <div id="corpus-tales" class="pane-container" style="display:none;">
-            <div class="lexical-artifact">
-                <div class="artifact-header-zenith">
-                    <h2 class="lemma-pinnacle">أرشيف الحكايات</h2>
-                    <span class="ipa-pinnacle">Linguistic Narrative Corpus</span>
-                </div>
-                <div class="corpus-vault-imperial">
-                    <span class="manuscript-prime">illa wmšan d tmšant d lxir d memmi-s al aynn di ylla wrgaz imlš yišt n tmṭṭuṭ tuṛw as aḥrrud tmmt...</span>
-                    <p class="analysis-prime">الاستقصاء التحليلي: يبرز هذا المتن تمثلات الكينونة والوجود في المخيال السردي لقبيلة أيت وراين.</p>
-                </div>
+        <div id="contact-pane" class="pane-container">
+            <div class="contact-card ultimate-reveal">
+                <h2 class="contact-title">اتصل بنا</h2>
+                <p>الباحث الرئيسي: <span style="color: var(--gold); font-weight: bold;">hakimed.b@gmail.com</span></p>
             </div>
         </div>
 
-        <div id="pane-theory" class="pane-container" style="display:none;">
-            <div class="lexical-artifact">
-                <h2 style="color:var(--brand-gold); margin-bottom:4rem; font-size:4rem; letter-spacing: -3px;">المصفوفة المنهجية</h2>
-                <p style="font-size: 1.8rem; color: #334155; text-align: justify; line-height: 2.2; font-weight: 300;">
-                    ينبني هذا الأطلس على نموذج **تحليل الأفعال التداولية**، حيث يتم فك شيفرة "المقصدية الثقافية" للمتحدث الأمازيغي داخل سياق إقليم بولمان.
-                </p>
+        <div id="admin-pane" class="pane-container">
+            <div class="contact-card ultimate-reveal" style="border-top: 4px solid var(--azure);">
+                <i class="fas fa-user-shield fa-4x" style="margin-bottom: 2rem; color: var(--azure); display: block; margin-left: auto; margin-right: auto;"></i>
+                <h2 class="contact-title">لوحة التحكم</h2>
+                <p>إدارة المتن الميداني وتصدير البيانات.</p>
             </div>
         </div>
-
-        <div id="phd-pane" class="pane-container" style="display:none;">
-            <div class="lexical-artifact" style="text-align:center; padding:12rem 4rem;">
-                <i class="fas fa-university fa-8x" style="color:var(--brand-navy); opacity:0.02; margin-bottom:3rem;"></i>
-                <h2 style="font-size:4.5rem; letter-spacing: -4px;">أطروحة الدكتوراه</h2>
-                <p style="margin-top:60px; font-weight:800; font-size:1.8rem;">جامعة محمد بن عبد الله - فاس <br> مركز دراسات الدكتوراه</p>
-                <div style="margin-top:100px; display:inline-block; padding:30px 80px; background:#f8fafc; border-radius:40px; font-size:1.2rem; color:#94a3b8; font-weight:900; letter-spacing: 5px;">
-                    AMAWAL ULTIMATE ENGINE v11.0.0 Sovereign
-                </div>
-            </div>
-        </div>
-
     </main>
-
-    <!-- شريط التنقل السفلي الفائق (App Native Mastery) -->
-    <nav class="bottom-nav">
-        <div class="nav-item active" onclick="switchPane('pane-lexicon', this)">
-            <i class="fas fa-microscope"></i>
-            <span>المعجم</span>
-        </div>
-        <div class="nav-item" onclick="toggleSidebar(); toggleSidebarSubnav()">
-            <i class="fas fa-database"></i>
-            <span>المتن</span>
-        </div>
-        <div class="nav-item" onclick="switchPane('pane-phd', this)">
-            <i class="fas fa-graduation-cap"></i>
-            <span>الأطروحة</span>
-        </div>
-        <div class="nav-item" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i>
-            <span>المزيد</span>
-        </div>
-    </nav>
 
     <script src="app.js"></script>
 </body>

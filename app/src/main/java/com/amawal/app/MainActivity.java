@@ -26,6 +26,8 @@ public class MainActivity extends AppCompatActivity {
         WebView webView = findViewById(R.id.webView);
         ProgressBar progressBar = findViewById(R.id.progressBar);
 
+        webView.setBackgroundColor(0x00000000); // Set transparent to avoid white flash
+
         WebSettings settings = webView.getSettings();
         settings.setJavaScriptEnabled(true);
         settings.setDomStorageEnabled(true);
@@ -35,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
         settings.setLoadWithOverviewMode(true);
         settings.setUseWideViewPort(true);
         
+        webView.clearCache(true);
         webView.setHorizontalScrollBarEnabled(false);
         webView.setOverScrollMode(View.OVER_SCROLL_NEVER);
         
@@ -48,30 +51,24 @@ public class MainActivity extends AppCompatActivity {
             public void onPageFinished(WebView view, String url) {
                 progressBar.setVisibility(View.GONE);
                 webView.setVisibility(View.VISIBLE);
-                webView.setAlpha(0f);
-                webView.animate().alpha(1f).setDuration(500).start();
             }
         });
 
-        webView.loadUrl("file:///android_asset/index.html");
+        webView.loadUrl("file:///android_asset/index.html?v=" + System.currentTimeMillis());
 
         getOnBackPressedDispatcher().addCallback(this, new OnBackPressedCallback(true) {
             @Override
             public void handleOnBackPressed() {
                 if (webView.canGoBack()) {
                     webView.goBack();
-                } else {
-                    setEnabled(false);
-                    getOnBackPressedDispatcher().onBackPressed();
-                    setEnabled(true);
                 }
             }
         });
 
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
-            // إضافة مساحة إضافية (20 بكسل) لجعل الواجهة تبدأ من مكان أنزل قليلاً
-            v.setPadding(0, systemBars.top + 40, 0, systemBars.bottom);
+            // إضافة مساحة إضافية لجعل الواجهة تبدأ من مكان أنزل قليلاً، وإزالة الحشوة السفلية لتوسيط الأزرار
+            v.setPadding(0, systemBars.top + 40, 0, 0);
             return insets;
         });
     }
